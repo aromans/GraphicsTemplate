@@ -3,6 +3,29 @@ project(GraphicsTemplate)
 
 set(CMAKE_CXX_STANDARD 23)
 
+# ----- Find Engine Library ----- #
+find_library(ENGINE_LIB
+        NAMES Engine
+        PATHS Engine/
+        PATH_SUFFIXES bin
+        NO_DEFAULT_PATH)
+
+# ----- Building Engine Files ----- #
+if (NOT EXISTS ${ENGINE_LIB})
+    EXECUTE_PROCESS(COMMAND sh BuildEngine.sh
+                    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/Engine/
+                    RESULT_VARIABLE ENGINE_BUILT)
+    if (NOT ENGINE_BUILT EQUAL "0")
+        message(Could not find the Engine static lib file!)
+    else()
+        find_library(ENGINE_LIB
+                NAMES Engine
+                PATHS Engine/
+                PATH_SUFFIXES bin
+                NO_DEFAULT_PATH)
+    endif()
+endif()
+
 # ----- Include Vendors ----- #
 include_directories("${PROJECT_SOURCE_DIR}/Vendor/glad/include")
 include_directories("${PROJECT_SOURCE_DIR}/Vendor/stb")
@@ -20,13 +43,6 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/Vendor/spdlog")
 # ----- Project CMake Subdirectories ----- #
 add_subdirectory("${PROJECT_SOURCE_DIR}/Engine" "${PROJECT_SOURCE_DIR}/Engine/bin")
 add_subdirectory("${PROJECT_SOURCE_DIR}/Game" "${PROJECT_SOURCE_DIR}/Game/bin")
-
-# ----- Find Engine Library ----- #
-find_library(ENGINE_LIB
-        NAMES Engine
-        PATHS Engine/
-        PATH_SUFFIXES bin
-        NO_DEFAULT_PATH)
 
 # ----- Linking Libraries to Projects ----- #
 target_link_libraries(Engine glfw)
