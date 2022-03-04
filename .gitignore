@@ -1,0 +1,10 @@
+# Directories
+cmake-build-debug
+Engine/bin
+Game/bin
+.idea
+
+# Mac Directories Only
+.DS_Store
+Engine/.DS_Store
+Game/.DS_Store
