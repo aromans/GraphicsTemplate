@@ -6,7 +6,7 @@
 	url = git@github.com:g-truc/glm.git
 [submodule "Vendor/glew"]
 	path = Vendor/glew
-	url = git@github.com:nigels-com/glew.git
+	url = git@github.com:aromans/glew.git
 [submodule "Vendor/spdlog"]
 	path = Vendor/spdlog
 	url = git@github.com:gabime/spdlog.git
