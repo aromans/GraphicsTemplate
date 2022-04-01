@@ -5,7 +5,10 @@ set(CMAKE_CXX_STANDARD 23)
 
 # ----- Source Files ----- #
 set(FILES
-        src/library.cpp
+        src/Engine/Core/Application.cpp
+        src/Engine/Core/Platform/GLWindow.cpp
+        src/Engine/Core/Platform/GLInput.cpp
+        src/Engine/Core/Logger/Log.cpp
         )
 
 # ----- Build Static Library ----- #

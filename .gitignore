@@ -3,6 +3,7 @@ cmake-build-debug
 Engine/bin
 Game/bin
 .idea
+bin/
 
 # Mac Directories Only
 .DS_Store

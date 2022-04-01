@@ -30,7 +30,9 @@ endif()
 include_directories("${PROJECT_SOURCE_DIR}/Vendor/glad/include")
 include_directories("${PROJECT_SOURCE_DIR}/Vendor/stb")
 include_directories("${PROJECT_SOURCE_DIR}/Vendor/glew/include")
+#include_directories("${PROJECT_SOURCE_DIR}/Vendor/GLFW/include")
 include_directories("${PROJECT_SOURCE_DIR}/Vendor/glm/")
+
 
 # ----- Include Engine ----- #
 include_directories("${PROJECT_SOURCE_DIR}/Engine/src")
